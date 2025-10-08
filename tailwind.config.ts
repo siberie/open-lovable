@@ -81,11 +81,11 @@ const themeConfig: Config = {
       },
       fontSize: {
         "title-h1": [
-          "60px",
+          "44px",
           {
             "lineHeight": "64px",
             "letterSpacing": "-0.3px",
-            "fontWeight": "500"
+            "fontWeight": "600"
           }
         ],
         "title-h2": [

@@ -11,6 +11,7 @@ import { Connector } from "@/components/shared/layout/curvy-rect";
 import HeroFlame from "@/components/shared/effects/flame/hero-flame";
 import AsciiExplosion from "@/components/shared/effects/flame/ascii-explosion";
 import { HeaderProvider } from "@/components/shared/header/HeaderContext";
+import LiteAILogo from "@/components/shared/icons/Logo"
 
 // Import hero section components
 import HomeHeroBackground from "@/components/app/(home)/sections/hero/Background/Background";
@@ -27,6 +28,7 @@ import HeaderWrapper from "@/components/shared/header/Wrapper/Wrapper";
 import HeaderDropdownWrapper from "@/components/shared/header/Dropdown/Wrapper/Wrapper";
 import GithubIcon from "@/components/shared/header/Github/_svg/GithubIcon";
 import ButtonUI from "@/components/ui/shadcn/button"
+import BackgroundPlanet from "@/components/BackgroundPlanet";
 
 interface SearchResult {
   url: string;
@@ -202,14 +204,15 @@ export default function HomePage() {
       <div className="min-h-screen bg-background-base">
         {/* Header/Navigation Section */}
         <HeaderDropdownWrapper />
+        <BackgroundPlanet className="absolute -bottom-[80%] left-1/2 -translate-x-1/2" />
 
-        <div className="sticky top-0 left-0 w-full z-[101] bg-background-base header">
-          <div className="absolute top-0 cmw-container border-x border-border-faint h-full pointer-events-none" />
-          <div className="h-1 bg-border-faint w-full left-0 -bottom-1 absolute" />
-          <div className="cmw-container absolute h-full pointer-events-none top-0">
+        <div className="sticky top-0 left-0 w-full z-[101] bg-white header">
+          {/* <div className="absolute top-0 cmw-container border-x border-border-faint h-full pointer-events-none" /> */}
+          {/* <div className="h-1 bg-border-faint w-full left-0 -bottom-1 absolute" /> */}
+          {/* <div className="cmw-container absolute h-full pointer-events-none top-0">
             <Connector className="absolute -left-[10.5px] -bottom-11" />
             <Connector className="absolute -right-[10.5px] -bottom-11" />
-          </div>
+          </div> */}
 
           <HeaderWrapper>
             <div className="max-w-[900px] mx-auto w-full flex justify-between items-center">
@@ -235,24 +238,19 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="overflow-x-clip" id="home-hero">
           <div className="pt-28 lg:pt-254 lg:-mt-100 pb-115 relative" id="hero-content">
-            <HomeHeroPixi />
-            <HeroFlame />
-            <BackgroundOuterPiece />
-            <HomeHeroBackground />
+            {/*<HomeHeroPixi />*/}
+            {/*<HeroFlame />*/}
+            {/*<BackgroundOuterPiece />*/}
+            {/*<HomeHeroBackground />*/}
 
             <div className="relative container px-16">
-              <HomeHeroBadge />
+              <div className="flex justify-center mb-36">
+                <LiteAILogo />
+              </div>
               <HomeHeroTitle />
               <p className="text-center text-body-large">
-                Re-imagine any website, in seconds.
+                Create, customize, and publish your travel platform with ease.
               </p>
-              <Link
-                className="bg-black-alpha-4 hover:bg-black-alpha-6 rounded-6 px-8 lg:px-6 text-label-large h-30 lg:h-24 block mt-8 mx-auto w-max gap-4 transition-all"
-                href="#"
-                onClick={(e) => e.preventDefault()}
-              >
-                Powered by Firecrawl.
-              </Link>
             </div>
           </div>
 
@@ -272,7 +270,7 @@ export default function HomePage() {
                   className="bg-white rounded-20"
                   style={{
                     boxShadow:
-                      "0px 0px 44px 0px rgba(0, 0, 0, 0.02), 0px 88px 56px -20px rgba(0, 0, 0, 0.03), 0px 56px 56px -20px rgba(0, 0, 0, 0.02), 0px 32px 32px -20px rgba(0, 0, 0, 0.03), 0px 16px 24px -12px rgba(0, 0, 0, 0.03), 0px 0px 0px 1px rgba(0, 0, 0, 0.05), 0px 0px 0px 10px #F9F9F9",
+                      "0 4px 7px 0 #b46eff1a",
                   }}
                 >
 
@@ -330,7 +328,7 @@ export default function HomePage() {
                     </>
                   ) : (
                     <>
-                      {isURL(url) ? (
+                      {/* {isURL(url) ? (
                         // Scrape icon for URLs
                         <svg 
                           width="20" 
@@ -356,10 +354,10 @@ export default function HomePage() {
                           <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5"/>
                           <path d="M12.5 12.5L16.5 16.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                         </svg>
-                      )}
+                      )} */}
                       <input
-                        className="flex-1 bg-transparent text-body-input text-accent-black placeholder:text-black-alpha-48 focus:outline-none focus:ring-0 focus:border-transparent"
-                        placeholder="Enter URL or search term..."
+                        className="flex-1 bg-transparent font-medium text-accent-black placeholder:text-[#474747] focus:outline-none focus:ring-0 focus:border-transparent"
+                        placeholder="Ask LiteAI to create your travel site..."
                         type="text"
                         value={url}
                         disabled={isSearching}
@@ -397,7 +395,7 @@ export default function HomePage() {
                       >
                         <HeroInputSubmitButton 
                           dirty={url.length > 0} 
-                          buttonText={isURL(url) ? 'Scrape Site' : 'Search'} 
+                          buttonText={isURL(url) ? 'Scrape Site' : 'Start'}
                           disabled={isSearching}
                         />
                       </div>
@@ -448,7 +446,7 @@ export default function HomePage() {
                         <select
                           value={selectedModel}
                           onChange={(e) => setSelectedModel(e.target.value)}
-                          className="px-3 py-2.5 text-[10px] font-medium text-gray-700 bg-white rounded border border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+                          className="px-3 py-2.5 text-[10px] font-medium text-gray-700 bg-white rounded border border-gray-200 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-00"
                         >
                           {models.map((model) => (
                             <option key={model.id} value={model.id}>

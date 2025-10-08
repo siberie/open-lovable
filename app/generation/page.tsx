@@ -3074,7 +3074,9 @@ Focus on the key sections and content, making it clean and modern.`;
     <HeaderProvider>
       <div className="font-sans bg-background text-foreground h-screen flex flex-col">
       <div className="bg-white py-[15px] py-[8px] border-b border-border-faint flex items-center justify-between shadow-sm">
+        <div className='ml-12'>
         <HeaderBrandKit />
+        </div>
         <div className="flex items-center gap-2">
           {/* Model Selector - Left side */}
           <select
@@ -3132,7 +3134,7 @@ Focus on the key sections and content, making it clean and modern.`;
 
       <div className="flex-1 flex overflow-hidden">
         {/* Center Panel - AI Chat (1/3 of remaining width) */}
-        <div className="flex-1 max-w-[400px] flex flex-col border-r border-border bg-background">
+        <div className="flex-1 max-w-[400px] flex flex-col border-r border-border bg-background-base">
           {/* Sidebar Input Component */}
           {!hasInitialSubmission ? (
             <div className="p-4 border-b border-border">

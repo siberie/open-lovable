@@ -61,7 +61,7 @@
 /* Utility text classes matching firecrawl-marketing - extending base classes */
 .title-h1,
 .text-title-h1 {
-  font-size: 4rem; /* 64px */
+  font-size: 2.75rem; /* px */
   line-height: 1.1;
   letter-spacing: -0.02em;
   font-weight: 600;
